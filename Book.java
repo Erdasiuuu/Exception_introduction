@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 public class Book {
 
-    private static final Logger LOGGER = Logger.getLogger(LoggingExample.class.getName());  
+    private static final Logger LOGGER = Logger.getLogger(Book.class.getName());  
   private String title;
   private String genre;
   private int pages;
@@ -28,6 +28,8 @@ public class Book {
 
   /**
    * @brief Конструктор с параметрами
+   *
+   * В данном блоке демонстрируется подавление исключения (внутри сеттеров обрабатываются исключения)
    *
    */
 
@@ -52,10 +54,14 @@ public class Book {
   }
 
   public void setTitle(String title) {
+    try {
     if (title.length() == 0) {
-      System.out.printf("%s %s", incorrectStr(), this.title);
+      throw new IllegalArgumentException(incorrectStr() + " " + this.title);
     } else {
       this.title = title;
+    }
+    } catch (IllegalArgumentException e) {
+	  LOGGER.log(Level.WARNING, "Некорректно указано название");
     }
   }
 
@@ -64,10 +70,14 @@ public class Book {
   }
 
   public void setGenre(String genre) {
+    try {
     if (genre.length() == 0) {
-      System.out.printf("%s %s", incorrectStr(), this.genre);
+      throw new IllegalArgumentException(incorrectStr() + " " + this.genre);
     } else {
       this.genre = genre;
+    }
+    } catch (IllegalArgumentException e) {
+	  LOGGER.log(Level.WARNING, "Некорректно указан жанр");
     }
   }
 
@@ -76,10 +86,14 @@ public class Book {
   }
 
   public void setPages(int pages) {
+    try {
     if (pages <= 0) {
-      System.out.printf("%s %d", incorrectNum(), this.pages);
+      throw new IllegalArgumentException(incorrectNum() + " " + this.pages);
     } else {
       this.pages = pages;
+    }
+    } catch (IllegalArgumentException e) {
+	  LOGGER.log(Level.WARNING, "Некорректно указано количество страниц");
     }
   }
 
@@ -88,10 +102,14 @@ public class Book {
   }
 
   public void setWordPerPage(double wordPerPage) {
+    try {
     if (wordPerPage <= 0) {
-      System.out.printf("%s %f", incorrectNum(), this.wordPerPage);
+      throw new IllegalArgumentException(incorrectNum() + " " + this.wordPerPage);
     } else {
       this.wordPerPage = wordPerPage;
+    }
+    } catch (IllegalArgumentException e) {
+	  LOGGER.log(Level.WARNING, "Некорректно указано количество слов на страницу");
     }
   }
 
