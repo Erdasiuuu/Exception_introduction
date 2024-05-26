@@ -44,7 +44,7 @@ public class Main {
       try {
       choice = scanner.nextInt();
       } catch (InputMismatchException e) {
-	      System.out.printf("Некорректный ввод\n");
+		throw new NotNumber("На ввод было передано не число", e);
       }
       scanner.nextLine();
       switch (choice) {
