@@ -45,6 +45,7 @@ public class Main {
       choice = scanner.nextInt();
       } catch (InputMismatchException e) {
 		throw new NotNumber("На ввод было передано не число", e);
+		// Вызывается цепочка исключений
       }
       scanner.nextLine();
       switch (choice) {
