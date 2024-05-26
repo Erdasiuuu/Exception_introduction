@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 public class Main {
   /**
@@ -42,8 +43,9 @@ public class Main {
       Book.printMenu();
       try {
       choice = scanner.nextInt();
-      } catch (Exception e) {
-	      throw new 
+      } catch (InputMismatchException e) {
+	      System.out.printf("Некорректный ввод\n");
+      }
       scanner.nextLine();
       switch (choice) {
         case ADD_EMPTY_OBJECT:
@@ -66,7 +68,7 @@ public class Main {
           break;
         case EXIT:
           break;
-        default:
+	default:
           Book.printErrorInput();
           break;
       }
