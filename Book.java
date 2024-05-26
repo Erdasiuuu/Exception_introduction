@@ -6,8 +6,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Book {
-
-    private static final Logger LOGGER = Logger.getLogger(Book.class.getName());  
+  private static final Logger LOGGER = Logger.getLogger(Book.class.getName());
   private String title;
   private String genre;
   private int pages;
@@ -29,19 +28,20 @@ public class Book {
   /**
    * @brief Конструктор с параметрами
    *
-   * В данном блоке демонстрируется подавление исключения (внутри сеттеров обрабатываются исключения)
+   * В данном блоке демонстрируется подавление исключения (внутри сеттеров
+   * обрабатываются исключения)
    *
    */
 
   public Book(String title, String genre, int pages, double wordPerPage) {
     try {
-    	setTitle(title);
-    	setGenre(genre);
-    	setPages(pages);
-    	setWordPerPage(wordPerPage);
+      setTitle(title);
+      setGenre(genre);
+      setPages(pages);
+      setWordPerPage(wordPerPage);
     } catch (IllegalArgumentException e) {
-	LOGGER.log(Level.WARNING, "Введены некорректные данные", e);
-   }
+      LOGGER.log(Level.WARNING, "Введены некорректные данные", e);
+    }
   }
 
   /**
@@ -57,13 +57,13 @@ public class Book {
 
   public void setTitle(String title) {
     try {
-    if (title.length() == 0) {
-      throw new IllegalArgumentException(incorrectStr() + " " + this.title);
-    } else {
-      this.title = title;
-    }
+      if (title.length() == 0) {
+        throw new IllegalArgumentException(incorrectStr() + " " + this.title);
+      } else {
+        this.title = title;
+      }
     } catch (IllegalArgumentException e) {
-	  LOGGER.log(Level.WARNING, "Некорректно указано название");
+      LOGGER.log(Level.WARNING, "Некорректно указано название");
     }
   }
 
@@ -73,13 +73,13 @@ public class Book {
 
   public void setGenre(String genre) {
     try {
-    if (genre.length() == 0) {
-      throw new IllegalArgumentException(incorrectStr() + " " + this.genre);
-    } else {
-      this.genre = genre;
-    }
+      if (genre.length() == 0) {
+        throw new IllegalArgumentException(incorrectStr() + " " + this.genre);
+      } else {
+        this.genre = genre;
+      }
     } catch (IllegalArgumentException e) {
-	  LOGGER.log(Level.WARNING, "Некорректно указан жанр");
+      LOGGER.log(Level.WARNING, "Некорректно указан жанр");
     }
   }
 
@@ -89,13 +89,13 @@ public class Book {
 
   public void setPages(int pages) {
     try {
-    if (pages <= 0) {
-      throw new IllegalArgumentException(incorrectNum() + " " + this.pages);
-    } else {
-      this.pages = pages;
-    }
+      if (pages <= 0) {
+        throw new IllegalArgumentException(incorrectNum() + " " + this.pages);
+      } else {
+        this.pages = pages;
+      }
     } catch (IllegalArgumentException e) {
-	  LOGGER.log(Level.WARNING, "Некорректно указано количество страниц");
+      LOGGER.log(Level.WARNING, "Некорректно указано количество страниц");
     }
   }
 
@@ -105,13 +105,13 @@ public class Book {
 
   public void setWordPerPage(double wordPerPage) {
     try {
-    if (wordPerPage <= 0) {
-      throw new IllegalArgumentException(incorrectNum() + " " + this.wordPerPage);
-    } else {
-      this.wordPerPage = wordPerPage;
-    }
+      if (wordPerPage <= 0) {
+        throw new IllegalArgumentException(incorrectNum() + " " + this.wordPerPage);
+      } else {
+        this.wordPerPage = wordPerPage;
+      }
     } catch (IllegalArgumentException e) {
-	  LOGGER.log(Level.WARNING, "Некорректно указано количество слов на страницу");
+      LOGGER.log(Level.WARNING, "Некорректно указано количество слов на страницу");
     }
   }
 

@@ -1,7 +1,7 @@
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class Main {
   /**
@@ -42,10 +42,10 @@ public class Main {
     while (choice != EXIT) {
       Book.printMenu();
       try {
-      choice = scanner.nextInt();
+        choice = scanner.nextInt();
       } catch (InputMismatchException e) {
-		throw new NotNumber("На ввод было передано не число", e);
-		// Вызывается цепочка исключений
+        throw new NotNumber("На ввод было передано не число", e);
+        // Вызывается цепочка исключений
       }
       scanner.nextLine();
       switch (choice) {
@@ -69,7 +69,7 @@ public class Main {
           break;
         case EXIT:
           break;
-	default:
+        default:
           Book.printErrorInput();
           break;
       }
