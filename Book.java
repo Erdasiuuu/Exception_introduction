@@ -151,9 +151,12 @@ public class Book {
   /**
    * @brief Функция сообщает о пустом списке
    *
+   * В данном блоке демонстрируется работа с утверждением
+   *
    */
 
   private static void checkListSize(int size) {
+    assert size > 0 : "Размер списка должен быть неотрицательным числом";
     if (size == 0) {
       System.out.printf("\nНет введенных данных\n\n");
     }
@@ -313,8 +316,6 @@ public class Book {
    * @brief Проверка на корректный ввод данных перед редактированием поля
    *
    */
-
-  private void checkWordPerPage() {}
 
   public static void printErrorInput() {
     System.out.printf("\nНеверный ввод. Попробуйте еще раз\n");
