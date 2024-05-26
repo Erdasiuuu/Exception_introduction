@@ -40,7 +40,10 @@ public class Main {
     int choice = 0;
     while (choice != EXIT) {
       Book.printMenu();
+      try {
       choice = scanner.nextInt();
+      } catch (Exception e) {
+	      throw new 
       scanner.nextLine();
       switch (choice) {
         case ADD_EMPTY_OBJECT:
