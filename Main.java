@@ -38,9 +38,11 @@ public class Main {
   public static void main(String[] args) {
     List<Book> book = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
-        try (Resource resource = new Resource()) {
-            resource.useResource();
-	} catch (Exception e) {}
+    // Подавление исключения
+    try (Resource resource = new Resource()) {
+      resource.useResource();
+    } catch (Exception e) {
+    }
     int choice = 0;
     while (choice != EXIT) {
       Book.printMenu();
